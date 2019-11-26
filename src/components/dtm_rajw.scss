@@ -1,0 +1,19 @@
+.dtm_rajw {
+  &_dtmWrap {
+    .displayNone {
+      display: none;
+    }
+    .continentTab {
+      display: flex;
+      background-color: #edeadc;
+      li {
+        cursor: pointer;
+        padding: 14px;
+        display: block;
+      }
+    }
+    .contentWrap {
+      display: flex;
+    }
+  }
+}
