@@ -2,9 +2,12 @@
 
 ```js
 interface State {
-  // 打開Dtm : 點擊input框
-  // 關閉Dtm : clickOutside, onSelectedData, 打叉
-  // 切換tab:
+  // V   打開Dtm : 點擊input框
+  // 關閉Dtm :
+  // clickOutside,  => 待處理
+  // V onSelectedData,
+  //  打叉
+  // V  切換tab:
   // Dtm 選單Detail
 }
 ```

@@ -1,0 +1,11 @@
+{
+    "data": {
+        "LAX": "美國(US)__洛杉磯-加州-LOS ANGELES CA(LAX)",
+        "SFO": "美國(US)__舊金山-加州-SAN FRANCISCO CA(SFO)",
+        "NYC": "美國(US)__紐約-紐約州-NEW YORK NY(NYC)",
+        "DEL": "印度(IN)__德里-DELHI(DEL)",
+        "IST": "土耳其(TR)__伊斯坦堡-ISTANBUL(IST)",
+        "KTM": "尼泊爾(NP)__加德滿都-KATHMANDU(KTM)",
+        "DXB": "阿拉伯聯合大公國(AE)__杜拜-DUBAI(DXB)"
+    }
+}
