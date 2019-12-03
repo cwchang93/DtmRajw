@@ -1,7 +1,12 @@
 .dtm_rajw {
+
+  display: inline;
+  position: relative;
+
   &_dtmWrap {
     width: 620px;
     height: 380px;
+    position: absolute;
 
     .displayNone {
       display: none;

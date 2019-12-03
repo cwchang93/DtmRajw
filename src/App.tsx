@@ -43,8 +43,6 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      {typeof originData}
-     {/* {JSON.stringify(originData)} */}
       <DtmRajw data={{'Dtm' : originData }} /> 
     </div>
   );

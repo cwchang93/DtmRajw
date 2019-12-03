@@ -19,7 +19,8 @@ interface State {
 }
 
 
-const rajnArr = [ "美國(US)__洛杉磯-加州-LOS ANGELES CA(LAX)",
+const rajnArr = [ 
+ "美國(US)__洛杉磯-加州-LOS ANGELES CA(LAX)",
  "美國(US)__舊金山-加州-SAN FRANCISCO CA(SFO)",
  "美國(US)__紐約-紐約州-NEW YORK NY(NYC)",
  "印度(IN)__德里-DELHI(DEL)",
@@ -27,15 +28,35 @@ const rajnArr = [ "美國(US)__洛杉磯-加州-LOS ANGELES CA(LAX)",
  "尼泊爾(NP)__加德滿都-KATHMANDU(KTM)",
  "阿拉伯聯合大公國(AE)__杜拜-DUBAI(DXB)"]
 
+
+ const ClickOutside = (ref:any, callback:any) => {
+    function handleClickOutside(event:any) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        callback();
+      }
+    }
+
+    React.useEffect(() => {
+      document.addEventListener("click", handleClickOutside);
+      return () => {
+        document.removeEventListener("click", handleClickOutside);
+      };
+    }, [handleClickOutside]);
+  };
+
+
 const DtmRajw:React.FC<Props> = (props:Props) => {
     //  const DtmData = props.data.Dtm && props.data.Dtm;
     const dtmData = props.data && props.data.Dtm
+    // const dtmData = props.data && props.data.Dtm
     const [inputText, setInputText] = React.useState('');
     const [showDtm, setShowDtm] = React.useState(false);
     const [order, setOrder] = React.useState(-1)
     const [selectedId, setSelectedId] = React.useState('');
     const [selectedText, setSelectedText] = React.useState('');
 
+    const wrapperRef = React.useRef(null);
+    ClickOutside(wrapperRef, ()=> setShowDtm(false))
 
 
     const onInputChange = (inputValue: string) => {
@@ -45,7 +66,7 @@ const DtmRajw:React.FC<Props> = (props:Props) => {
         // for (let i = 0; i < rajnArr.length; i++ ) {
         //     console.log(rajnArr.findIndex(inputValue))
         // }
-    
+        
     }
 
     React.useEffect(() => {
@@ -93,7 +114,7 @@ const DtmRajw:React.FC<Props> = (props:Props) => {
                         } 
                         })}
                 </div>
-                        </div>
+                </div>
             )
         })
 
@@ -101,7 +122,7 @@ const DtmRajw:React.FC<Props> = (props:Props) => {
 
 
     return (
-        <div className="dtm_rajw">
+        <div className="dtm_rajw" ref={wrapperRef}>
             <input placeholder="請輸入地點" 
             value={inputText}
             onChange={(e)=>{
@@ -117,9 +138,10 @@ const DtmRajw:React.FC<Props> = (props:Props) => {
             />  
             { showDtm && 
             <div className="dtm_rajw_dtmWrap"  tabIndex={-1}
-                onBlur={()=> { 
-                    console.log('blur');
-                setShowDtm(false)}}>
+                // onBlur={()=> { 
+                //     console.log('blur');
+                // setShowDtm(false)}}
+                >
                 <ul className="continentTab">
 
                 {dtmData.line && renderContinent()}
