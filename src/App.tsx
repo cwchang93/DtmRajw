@@ -4,6 +4,8 @@ import './App.scss';
 import DtmRajw from './components/dtm_rajw'
 import {useEffect} from 'react';
 import axios from 'axios';
+import Preview from './components/preview'
+
 
 const App: React.FC = () => {
 
@@ -11,22 +13,6 @@ const App: React.FC = () => {
   const url = '/json/DtmData.json'
 
   const [originData, setOriginData] = React.useState(null)
-
-  // const dtm = {}
-
-  // useEffect(()=> {
-  
-  //   const fetchData = async () => {
-  //     const result = await axios(url);
-  //     console.log('result',result)
-  //     setOriginData(result.data)
-  //   }
-  
-  //   fetchData()
-  // }, [])
-
-
-
 
   useEffect(()=>{
     // fetchData()
@@ -43,7 +29,8 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <DtmRajw data={{'Dtm' : originData }} /> 
+      <Preview data={{'Dtm' : originData }} /> 
+      {/* <DtmRajw data={{'Dtm' : originData }} />  */}
     </div>
   );
 }
