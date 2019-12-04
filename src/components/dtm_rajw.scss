@@ -1,5 +1,4 @@
 .dtm_rajw {
-
   display: inline;
   position: relative;
 
@@ -26,6 +25,20 @@
           background-color: #fff;
           border-top: 3px solid #e10500;
         }
+        &.dot {
+          // height: 10px;
+          position: relative;
+          &::after {
+            position: absolute;
+            display: block;
+            content: "";
+            width: 7px;
+            height: 7px;
+            top: 18%;
+            left: 80%;
+            background-color: #e10500;
+          }
+        }
       }
     }
 
@@ -40,7 +53,7 @@
 
           &.selected {
             color: #fff;
-            background-color: #ff615d
+            background-color: #ff615d;
           }
         }
       }
