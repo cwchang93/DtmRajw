@@ -1,10 +1,9 @@
 .dtm_rajw {
-
   display: inline;
   position: relative;
 
   &_dtmWrap {
-    width: 620px;
+    width: 660px;
     height: 380px;
     position: absolute;
 
@@ -13,6 +12,7 @@
     }
 
     .continentTab {
+      padding-left: 0;
       display: flex;
       background-color: #edeadc;
 
@@ -20,6 +20,9 @@
         cursor: pointer;
         padding: 14px;
         display: block;
+        font-weight: bold;
+        font-size: 16px;
+        border-top: 3px solid transparent;
 
         &.active {
           color: #e10500;
@@ -30,8 +33,29 @@
     }
 
     .contentWrap {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      border-bottom: solid #bbb 1px;
 
+      &.displayNone {
+        display: none;
+      }
+
+      .levelTwoWrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .levelTwo {
+          display: inline-block;
+          font-size: 16px;
+          font-weight: bold;
+          text-decoration: underline;
+          line-height: 30px;
+          padding: 0 5px;
+          border-radius: 3px;
+          cursor: pointer;
+        }
+      }
 
       .itemWrap {
         display: flex;
@@ -41,10 +65,14 @@
         .item {
           padding: 10px;
           width: calc(100% / 3 - 20px);
+          cursor: pointer;
 
+          &:hover,
           &.selected {
             color: #fff;
-            background-color: #ff615d
+            background-color: #ff615d;
+            border-radius: 3px;
+            height: 20px;
           }
         }
       }

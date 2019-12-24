@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./dtm_rajw.scss";
+import cx from "classnames";
 
 interface Props {
   multiItem?: boolean; // 單選或多選
@@ -55,8 +56,18 @@ const DtmRajw: React.FC<Props> = (props: Props) => {
 
   const renderCity = () => {
     return dtmData.country.map((ele: any, i: number) => {
+      console.log("ele.order", ele.order);
+      console.log("order", order);
       return (
-        <div className="contentWrap" key={`${ele.text}_${i}`}>
+        <div
+          className={cx(
+            {
+              displayNone: ele.order !== order
+            },
+            "contentWrap"
+          )}
+          key={`${ele.text}_${i}`}
+        >
           <div className="levelTwoWrap">
             {ele.order === order && <div className="levelTwo">{ele.text}</div>}
           </div>
@@ -72,7 +83,7 @@ const DtmRajw: React.FC<Props> = (props: Props) => {
                     key={idx}
                     className={
                       // item.text === selectedData.text &&
-                      props.inputText === item.text ? "item selected" : "item"
+                      cx({ selected: props.inputText === item.text }, "item")
                     }
                     onClick={() => {
                       handleSelected(item, idx);
