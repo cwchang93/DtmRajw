@@ -44,6 +44,9 @@
         "editor.formatOnSave": false
     },
     "workbench.iconTheme": "vscode-icons",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
 
     // "gitlens.currentLine.enabled": false
 }
