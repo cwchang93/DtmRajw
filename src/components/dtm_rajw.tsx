@@ -56,8 +56,8 @@ const DtmRajw: React.FC<Props> = (props: Props) => {
 
   const renderCity = () => {
     return dtmData.country.map((ele: any, i: number) => {
-      console.log("ele.order", ele.order);
-      console.log("order", order);
+      // console.log("ele.order", ele.order);
+      // console.log("order", order);
       return (
         <div
           className={cx(
